@@ -5,6 +5,7 @@ import { Trechos } from '../shared/models/trechos';
 import {Router } from '@angular/router';
 import { Avaliacoes } from '../shared/models/avaliacoes';
 import { REST_URL_TRECHOS, REST_URL_AVALIACOES } from '../shared/REST_API_URLs';
+import { Stream } from 'stream';
 
 @Component({
     templateUrl: './video.component.html',  
@@ -21,7 +22,7 @@ export class VideoComponent implements OnInit {
   @Input() email : string; // e-mail do avaliador
   atual : number =0; // posição do vídeo
   @Input() lista : Trechos[]; // lista de vídeos
-
+  currentTime: number;
   avaliacao : Avaliacoes;
 
 
@@ -42,11 +43,16 @@ export class VideoComponent implements OnInit {
     this.atual = 0;
   }
 
+
+  form_adress(video_adress: string, begin: number,  end: number) : string{
+    let adress: string = video_adress.concat("#t=",begin.toString(),",",end.toString());
+    console.log(adress);
+    return adress;
+  }
+
   mudou ($event) {
-    if ($event.data == 0){
-        //console.log ("Acabou o vídeo");
+        console.log ("Acabou o vídeo");
         this.assiste = false;
-    }
   }
 
   fvideo():boolean{

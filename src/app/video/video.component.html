@@ -1,9 +1,11 @@
 <main class="d-flex justify-content-center align-items-center" style="height: 100vh;">
     <div class="d-flex justify-content-center flex-wrap bg-white border shadow-lg rounded-lg px-5 py-5">
         <div class="row" *ngIf="fvideo()">
-            <youtube-player [videoId]="video_endereco" [startSeconds]="inicio" [endSeconds]="fim" [height]="h" [width]="w" (stateChange)="mudou($event)"></youtube-player>
+            <video autoplay id="meuvideo" (pause)="mudou($event)">
+                <source [src]="form_adress(video_endereco, inicio, fim)" type='video/mp4'>
+            </video>
         </div>
-    
+        
         <div class="row" *ngIf="!fvideo()">
 
             <button type="button" (click)="grava('S')" class="btn btn-success" style="margin-right: 20px;">Sim</button>
