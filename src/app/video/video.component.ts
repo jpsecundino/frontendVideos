@@ -5,7 +5,6 @@ import { Trechos } from '../shared/models/trechos';
 import {Router } from '@angular/router';
 import { Avaliacoes } from '../shared/models/avaliacoes';
 import { REST_URL_TRECHOS, REST_URL_AVALIACOES } from '../shared/REST_API_URLs';
-import { Stream } from 'stream';
 
 @Component({
     templateUrl: './video.component.html',  
@@ -15,6 +14,7 @@ export class VideoComponent implements OnInit {
   w : number = 660; // largura vídeo
   h : number=  440; // altura vídeo
   video_endereco : string = "";  //id do vídeo
+  jornal : string = "";
   inicio : number = 0; // segundo início
   fim : number = 0; // segund final
   assiste : boolean = true; // alterna entre vídeo e botões
