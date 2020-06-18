@@ -45,7 +45,9 @@ export class VideoComponent implements OnInit {
 
 
   form_adress(video_adress: string, begin: number,  end: number) : string{
-    let adress: string = video_adress.concat("#t=",begin.toString(),",",end.toString());
+    
+    let adress: string = "https://drive.google.com/uc?export=download&id="
+    adress = adress.concat(video_adress,"#t=",begin.toString(),",",end.toString());
     console.log(adress);
     return adress;
   }

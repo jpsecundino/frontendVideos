@@ -19,10 +19,27 @@ export class HomeComponent implements OnInit {
   constructor(private dao : DAOService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    // this.getAll();
     this.getAll();
     this.email= this.activatedRoute.snapshot.paramMap.get('parametro');
     this.nome= this.activatedRoute.snapshot.paramMap.get('parametro2');
   }
+
+  getOne = () => {
+    this.dao.getOne(REST_URL_TRECHOS, 74).subscribe(
+      data => {
+
+        this.lista = data;
+        console.log('Dados');
+        console.log(data);
+        console.log('Lista');
+        console.log(this.lista);
+      },
+      error => {
+        console.log("Aconteceu um erro", error.message);
+      }
+    )
+  };
 
   getAll = () => {
     this.dao.getAll(REST_URL_TRECHOS).subscribe(
@@ -43,6 +60,7 @@ export class HomeComponent implements OnInit {
   getRndInt(min, max) : number{
     return Math.floor(Math.random() * (max - min + 1) ) + min;
   }
+
 
   getOnePerSubject(data: Trechos[]) : Trechos[] {
     var sortedData: Trechos[] = data.sort((a,b) => a.video_assunto.localeCompare(b.video_assunto))
