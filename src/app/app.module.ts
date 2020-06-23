@@ -15,7 +15,7 @@ import { IndexModule } from './index/index.module';
 const config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
-    provider: new GoogleLoginProvider('329527231673-dcucgo85fgm0lhemv57mi9de4gs268cn.apps.googleusercontent.com')
+    provider: new GoogleLoginProvider('329527231673-83isv13nefctqg8roejknfo4is27jv8o.apps.googleusercontent.com')
   }
 ]);
 
