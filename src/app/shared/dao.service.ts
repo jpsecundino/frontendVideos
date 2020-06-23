@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DAOService {
-    REST_URL = 'http://localhost:8000/';
+    REST_URL = 'https://desolate-temple-47066.herokuapp.com/';
     httpHeaders = new HttpHeaders().set('Content-Type', 'application/json')
    
     constructor(private http: HttpClient) { }
