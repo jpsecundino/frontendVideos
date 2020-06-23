@@ -6,7 +6,10 @@
             </video>
         </div>
         
-        <div class="row" *ngIf="!fvideo()">
+        <div style="width: 100%; text-align: center;" *ngIf="!fvideo()">
+            O assunto apresentado no video é do seu interesse?<br>
+        </div>
+        <div class="row" *ngIf="!fvideo()" style="margin-top: 7%;" >
 
             <button type="button" (click)="grava('S')" class="btn btn-success" style="margin-right: 20px;">Sim</button>
 
