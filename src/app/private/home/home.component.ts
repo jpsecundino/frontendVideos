@@ -20,31 +20,16 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     // this.getAll();
+    console.log(REST_URL_TRECHOS);
     this.getAll();
     this.email= this.activatedRoute.snapshot.paramMap.get('parametro');
     this.nome= this.activatedRoute.snapshot.paramMap.get('parametro2');
   }
 
-  getOne = () => {
-    this.dao.getOne(REST_URL_TRECHOS, 74).subscribe(
-      data => {
-
-        this.lista = data;
-        console.log('Dados');
-        console.log(data);
-        console.log('Lista');
-        console.log(this.lista);
-      },
-      error => {
-        console.log("Aconteceu um erro", error.message);
-      }
-    )
-  };
-
   getAll = () => {
     this.dao.getAll(REST_URL_TRECHOS).subscribe(
       data => {
-
+        
         this.lista = this.getOnePerSubject(data);
         console.log('Dados');
         console.log(data);
