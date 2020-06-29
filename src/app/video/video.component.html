@@ -1,7 +1,7 @@
 <main class="d-flex justify-content-center align-items-center" style="height: 100vh;">
     <div class="d-flex justify-content-center flex-wrap bg-white border shadow-lg rounded-lg px-5 py-5">
         <div class="row" *ngIf="fvideo()">
-            <video autoplay id="meuvideo" (pause)="mudou($event)">
+            <video autoplay id="meuvideo" (pause)="mudou($event)" poster="../../assets/Filme carregando.png">
                 <source [src]="form_adress(video_endereco, inicio, fim)" type='video/mp4'>
             </video>
         </div>
