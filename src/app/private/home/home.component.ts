@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     // this.getAll();
-    console.log(REST_URL_TRECHOS);
     this.getAll();
     this.email= this.activatedRoute.snapshot.paramMap.get('parametro');
     this.nome= this.activatedRoute.snapshot.paramMap.get('parametro2');
@@ -31,10 +30,6 @@ export class HomeComponent implements OnInit {
       data => {
         
         this.lista = this.getOnePerSubject(data);
-        console.log('Dados');
-        console.log(data);
-        console.log('Lista');
-        console.log(this.lista);
       },
       error => {
         console.log("Aconteceu um erro", error.message);
@@ -85,9 +80,6 @@ export class HomeComponent implements OnInit {
       
       finalData.push(sortedData[idx]);
     }
-
-    console.log('Final data');
-    console.log(finalData);
 
     return finalData;
   }

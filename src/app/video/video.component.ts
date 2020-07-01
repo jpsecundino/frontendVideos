@@ -35,7 +35,6 @@ export class VideoComponent implements OnInit {
     tag.src = "https://www.youtube.com/iframe_api";
     document.body.appendChild(tag);
     this.assiste = true;
-    console.log (this.lista[0].video_endereco);
     this.video_endereco = this.lista[0].video_endereco;
     this.inicio = this.lista[0].inicio;
     this.fim = this.lista[0].fim;
@@ -48,7 +47,6 @@ export class VideoComponent implements OnInit {
     
     let adress: string = "https://drive.google.com/uc?export=download&id="
     adress = adress.concat(video_adress,"#t=",begin.toString(),",",(end + 1).toString());
-    console.log(adress);
     return adress;
   }
 
@@ -63,7 +61,7 @@ export class VideoComponent implements OnInit {
 
   create(){
     this.dao.create(REST_URL_AVALIACOES, this.avaliacao).subscribe(data => {
-      //console.log(data)
+
     }, error => console.log(error))
   }
 
